@@ -1,20 +1,30 @@
 #!/usr/bin/env python3
 """
-module for creating a function that multiplies
-a float by multiplier
+Module for creating a function that multiplies a float by a multiplier.
 """
 from typing import Callable
 
 
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
-    returns:
-        Callable[[float], float]: A function that multiplies a
-        float by the multiplier
+    Create a function that multiplies a float by the given multiplier.
+
+    Parameters:
+        multiplier (float): The multiplier to use.
+
+    Returns:
+        Callable[[float], float]: A function that takes a float as input and returns
+         the result of multiplying it by the multiplier.
     """
     def multiply(n: float) -> float:
         """
-        float: result of multiplying
+        Multiply a float by the multiplier.
+
+        Parameters:
+            n (float): The float to be multiplied.
+
+        Returns:
+            float: The result of multiplying n by the multiplier.
         """
         return n * multiplier
     return multiply

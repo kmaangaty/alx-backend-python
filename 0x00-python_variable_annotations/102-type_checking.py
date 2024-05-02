@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """
-function for zooming in on a tuple
+Function for zooming in on a tuple.
 """
 from typing import List, Tuple, Optional
 
 
 def zoom_array(lst: Tuple[int, ...], factor: Optional[int] = 2) -> List[int]:
     """
-    returns a list
+    Zoom in on a tuple.
+
+    Parameters:
+        lst (Tuple[int, ...]): The tuple to zoom in on.
+        factor (Optional[int], optional): The zoom factor. Defaults to 2.
+
+    Returns:
+        List[int]: The zoomed-in list.
     """
     zoomed_in: List[int] = [
         item for item in lst
