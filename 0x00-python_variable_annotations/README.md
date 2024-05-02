@@ -1,1 +1,1 @@
-# welcome to 0. Basic annotations - add
+# 0x00-python_variable_annotations
