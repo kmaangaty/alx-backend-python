@@ -7,11 +7,13 @@ from typing import List, Tuple
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
     """
-       Zooms in on the elements of a tuple by repeating each element a certain number of times.
+       Zooms in on the elements of a tuple by repeating
+       each element a certain number of times.
 
        Args:
            lst (Tuple): The tuple containing elements to be zoomed in on.
-           factor (int, optional): The factor by which to zoom in. Defaults to 2.
+           factor (int, optional): The factor by which to
+        zoom in. Defaults to 2.
 
        Returns:
            List: A list containing the zoomed-in elements.
