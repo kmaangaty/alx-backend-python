@@ -1,31 +1,21 @@
 #!/usr/bin/env python3
+"""Task 12: Type Checking
 """
-Function for zooming in on a tuple.
-"""
-
-from typing import Tuple, List, Any, Optional
+from typing import List, Tuple
 
 
-def zoom_array(lst: Tuple[Any, ...], factor: int = 2) -> Tuple:
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """Creates multiple copies of items in a tuple.
     """
-    Zooms in on the elements of a tuple by repeating each element a certain number of times.
-
-    Args:
-        lst (Tuple[Any, ...]): The tuple containing elements to be zoomed in on.
-        factor (int, optional): The factor by which to zoom in. Defaults to 2.
-
-    Returns:
-        Tuple: A tuple containing the zoomed-in elements.
-    """
-    zoomed_in: Tuple = tuple(
+    zoomed_in: List = [
         item for item in lst
-        for _ in range(factor)
-    )
+        for i in range(factor)
+    ]
     return zoomed_in
 
 
-array: Tuple[int, int, int] = (12, 72, 91)
+array = (12, 72, 91)
 
-zoom_2x: Tuple[int, int, int, int, int, int] = zoom_array(array)
+zoom_2x = zoom_array(array)
 
-zoom_3x: Tuple[int, int, int, int, int, int, int, int, int] = zoom_array(array, 3)
+zoom_3x = zoom_array(array, 3)
