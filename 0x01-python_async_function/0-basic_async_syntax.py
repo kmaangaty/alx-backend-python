@@ -8,11 +8,6 @@ Python's asyncio module.
 It includes an asynchronous coroutine that waits for a random delay
 and eventually returns it.
 
-Example:
-    $ ./0-main.py
-    9.034261504534394
-    1.6216525464615306
-    10.634589756751769
 """
 
 
