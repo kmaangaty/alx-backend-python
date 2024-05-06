@@ -6,8 +6,10 @@ import random
 """
 Async I/O Basics
 
-This script demonstrates basic asynchronous I/O functionality using Python's asyncio module.
-It includes an asynchronous coroutine that waits for a random delay and eventually returns it.
+This script demonstrates basic asynchronous I/O functionality using
+Python's asyncio module.
+It includes an asynchronous coroutine that waits for a random delay
+and eventually returns it.
 
 Example:
     $ ./0-main.py
@@ -19,10 +21,12 @@ Example:
 
 async def wait_random(max_delay: int = 10) -> float:
     """
-    Asynchronous coroutine that waits for a random delay and eventually returns it.
+    Asynchronous coroutine that waits for a
+    random delay and eventually returns it.
 
     Args:
-        max_delay (int, optional): The maximum delay in seconds (inclusive). Defaults to 10.
+        max_delay (int, optional): The maximum delay
+        in seconds (inclusive). Defaults to 10.
 
     Returns:
         float: The random delay that was waited for.
