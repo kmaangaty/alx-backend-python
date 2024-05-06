@@ -6,9 +6,9 @@ This module includes a function to measure the
 runtime of the wait_n coroutine.
 """
 
-import time
+import asyncio
 from typing import List
-wait_n = __import__('1-concurrent_coroutines').wait_n
+wait_random = __import__("0-basic_async_syntax").wait_random
 
 
 async def measure_time(n: int, max_delay: int) -> float:
@@ -24,8 +24,8 @@ async def measure_time(n: int, max_delay: int) -> float:
     Returns:
         float: The average execution time per coroutine.
     """
-    start_time = time.time()
-    await wait_n(n, max_delay)
-    end_time = time.time()
-    total_time = end_time - start_time
-    return total_time / n
+    waits = await asyncio.gather(
+        *list(map(lambda _: wait_random(max_delay), range(n)))
+    )
+
+    return sorted(waits)
