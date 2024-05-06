@@ -7,8 +7,10 @@ runtime of the wait_n coroutine.
 """
 
 import asyncio
-from typing import List
-wait_random = __import__("0-basic_async_syntax").wait_random
+import time
+
+
+wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
 async def measure_time(n: int, max_delay: int) -> float:
@@ -24,8 +26,6 @@ async def measure_time(n: int, max_delay: int) -> float:
     Returns:
         float: The average execution time per coroutine.
     """
-    waits = await asyncio.gather(
-        *list(map(lambda _: wait_random(max_delay), range(n)))
-    )
-
-    return sorted(waits)
+    start_time = time.time()
+    asyncio.run(wait_n(n, max_delay))
+    return (time.time() - start_time) / n
