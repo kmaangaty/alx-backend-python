@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-
-import asyncio
-import random
-
 """
 Async I/O Basics
 
@@ -17,6 +13,10 @@ Example:
     1.6216525464615306
     10.634589756751769
 """
+
+
+import asyncio
+import random
 
 
 async def wait_random(max_delay: int = 10) -> float:
