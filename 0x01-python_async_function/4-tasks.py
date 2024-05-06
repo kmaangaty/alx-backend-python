@@ -1,47 +1,29 @@
 #!/usr/bin/env python3
 """
-Asynchronous Task Creation
-
-This module defines a regular function to create and return asyncio tasks
-to execute the wait_random coroutine multiple times with specified parameters.
+This module defines a function to spawn wait_random coroutines
+multiple times with specified parameters.
 """
 
 import asyncio
-import random
 from typing import List
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
-async def wait_random(max_delay: int = 10) -> float:
+async def task_wait_n(n: int, max_delay: int = 10) -> List[float]:
     """
-    Asynchronous coroutine that waits for a random delay and eventually returns it.
-
-    Args:
-        max_delay (int, optional): The maximum delay in seconds (inclusive). Defaults to 10.
-
-    Returns:
-        float: The random delay that was waited for.
-    """
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
-
-
-def task_wait_n(n: int, max_delay: int) -> List[float]:
-    """
-    Regular function that creates and returns asyncio tasks
-    to execute the wait_random coroutine n times with the specified max_delay.
+    Spawns wait_random coroutines n times with the specified max_delay.
 
     Args:
         n (int): The number of coroutines to spawn.
-        max_delay (int): The maximum delay in seconds for each coroutine.
+        max_delay (int, optional): The maximum delay in
+        seconds for each coroutine. Defaults to 10.
 
     Returns:
-        List[float]: The list of all the delays in ascending order.
+        List[float]: List of all the delays.
     """
-    tasks = []
-    for _ in range(n):
-        task = asyncio.create_task(wait_random(max_delay))
-        tasks.append(task)
-
-    delays = asyncio.run(asyncio.gather(*tasks))
-    return sorted(delays)
+    tasks = [task_wait_random(max_delay) for _ in range(n)]
+    wait_interval_list = []
+    for future in asyncio.as_completed(tasks):
+        result = await future
+        wait_interval_list.append(result)
+    return wait_interval_list
