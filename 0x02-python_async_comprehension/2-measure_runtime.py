@@ -10,7 +10,8 @@ import time
 from importlib import import_module
 
 # Importing async_comprehension coroutine from the previous file
-async_comprehension = import_module('1-async_comprehension').async_comprehension
+async_comprehension = (import_module('1-async_comprehension')
+                       .async_comprehension)
 
 
 async def measure_runtime() -> float:
