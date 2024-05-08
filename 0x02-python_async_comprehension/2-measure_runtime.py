@@ -7,7 +7,6 @@ the async_comprehension coroutine four times in parallel.
 
 import asyncio
 import time
-from typing import List
 from importlib import import_module
 
 # Importing async_comprehension coroutine from the previous file
