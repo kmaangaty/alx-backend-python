@@ -8,6 +8,7 @@ from client import GithubOrgClient
 from fixtures import (org_payload, repos_payload,
                       expected_repos, apache2_repos)
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Test cases for GithubOrgClient class."""
 
@@ -54,6 +55,7 @@ class TestGithubOrgClient(unittest.TestCase):
         """Test GithubOrgClient.has_license method."""
         client = GithubOrgClient("google")
         self.assertEqual(client.has_license(repo, license_key), expected)
+
 
 @parameterized_class((
         'org_payload', 'repos_payload',
